@@ -6,16 +6,21 @@ import { toast } from "react-toastify";
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 2000px;
-  margin: 0 auto;
-  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total da viewport */
+  width: 100vw;  /* Largura total da viewport */
+  padding: 20px;
   background-color: #e6f7ff; /* Fundo azul claro */
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
+  overflow-y: auto;
 `;
 
 const InputArea = styled.div`
   margin-bottom: 20px;
+  width: 100%; /* Largura total do contêiner do formulário */
+  max-width: 600px; /* Largura máxima para manter a legibilidade */
 `;
 
 const Input = styled.input`
@@ -49,6 +54,7 @@ const Button = styled.button`
     background-color: #003d80; /* Azul mais escuro no hover */
   }
 `;
+
 
 const Form = ({ getUsers, onEdit, setOnEdit }) => {
   const ref = useRef();
