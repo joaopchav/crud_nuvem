@@ -5,9 +5,17 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Container = styled.div`
-  max-width: 1200px;
-  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total da viewport */
+  width: 100vw;  /* Largura total da viewport */
   padding: 20px;
+  background-color: #e6f7ff; /* Fundo azul claro */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow-y: auto;
 `;
 
 const SearchInput = styled.input`
