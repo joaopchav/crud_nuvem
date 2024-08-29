@@ -8,7 +8,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: 'http://3.142.79.72 :3000', // Edereco da EC2
+  origin: 'http://3.142.79.72:3000', // Edereco da EC2
 }));
 
 app.use("/", userRoutes);
