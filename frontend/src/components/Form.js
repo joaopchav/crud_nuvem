@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 2000px;
   margin: 0 auto;
   padding: 30px;
   background-color: #e6f7ff; /* Fundo azul claro */

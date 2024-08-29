@@ -4,40 +4,67 @@ import styled from "styled-components";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #b3d9ff;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+`;
+
 const Table = styled.table`
   width: 100%;
   background-color: #fff;
-  padding: 20px;
-  box-shadow: 0px 0px 5px #ccc;
-  border-radius: 5px;
-  max-width: 1120px;
-  margin: 20px auto;
-  word-break: break-all;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-collapse: collapse;
 `;
 
-export const Thead = styled.thead``;
+const Thead = styled.thead`
+  background-color: #0056b3;
+  color: white;
+`;
 
-export const Tbody = styled.tbody``;
-
-export const Tr = styled.tr``;
-
-export const Th = styled.th`
+const Th = styled.th`
+  padding: 12px 15px;
   text-align: start;
-  border-bottom: inset;
-  padding-bottom: 5px;
+  font-size: 16px;
+`;
 
-  @media (max-width: 500px) {
-    ${(props) => props.onlyWeb && "display: none"}
+const Tbody = styled.tbody``;
+
+const Tr = styled.tr`
+  &:nth-child(even) {
+    background-color: #f2f2f2;
   }
 `;
 
-export const Td = styled.td`
-  padding-top: 15px;
+const Td = styled.td`
+  padding: 12px 15px;
   text-align: ${(props) => (props.alignCenter ? "center" : "start")};
-  width: ${(props) => (props.width ? props.width : "auto")};
+  font-size: 14px;
+`;
 
-  @media (max-width: 500px) {
-    ${(props) => props.onlyWeb && "display: none"}
+const IconButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #0056b3;
+  font-size: 18px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #003d80;
   }
 `;
 
@@ -79,45 +106,42 @@ const Grid = ({ setOnEdit }) => {
     setOnEdit(null);
   };
 
-
-
   return (
-    <>
-      <input
+    <Container>
+      <SearchInput
         type="text"
         value={searchTerm}
         onChange={handleSearch}
         placeholder="Buscar usuário...(Digite nome ou cpf)"
-        style={{ margin: "20px", padding: "10px", width: "calc(100% - 40px)" }}
       />
       <Table>
-      <Thead>
+        <Thead>
           <Tr>
             <Th>Nome</Th>
             <Th>Email</Th>
-            <Th >CPF</Th>
-            <Th></Th>
+            <Th>CPF</Th>
+            <Th>Ações</Th>
           </Tr>
         </Thead>
         <Tbody>
           {users.map((item, i) => (
             <Tr key={i}>
-              <Td width="30%">{item.nome}</Td>
-              <Td width="30%">{item.email}</Td>
-              <Td width="20%" onlyWeb>
-                {item.cpf}
-              </Td>
-              <Td alignCenter width="5%">
-                <FaEdit onClick={() => handleEdit(item)} />
-              </Td>
-              <Td alignCenter width="5%">
-                <FaTrash onClick={() => handleDelete(item.id)} />
+              <Td>{item.nome}</Td>
+              <Td>{item.email}</Td>
+              <Td>{item.cpf}</Td>
+              <Td alignCenter>
+                <IconButton onClick={() => handleEdit(item)}>
+                  <FaEdit />
+                </IconButton>
+                <IconButton onClick={() => handleDelete(item.id)}>
+                  <FaTrash />
+                </IconButton>
               </Td>
             </Tr>
           ))}
         </Tbody>
       </Table>
-    </>
+    </Container>
   );
 };
 
