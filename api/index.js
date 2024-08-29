@@ -14,5 +14,5 @@ app.use(cors({
 app.use("/", userRoutes);
 
 app.listen(8800, () => {
-  console.log('Backend is running on http://3.142.79.72 :8800');
+  console.log('Backend is running on http://3.142.79.72:8800');
 });

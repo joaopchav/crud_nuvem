@@ -47,7 +47,7 @@ const Grid = ({ setOnEdit }) => {
 
   const fetchUsers = async (query = "") => {
     try {
-      const response = await axios.get(`http://3.142.79.72 :8800/users?q=${query}`);
+      const response = await axios.get(`http://3.142.79.72:8800/users?q=${query}`);
       setUsers(response.data);
     } catch (error) {
       toast.error("Erro ao buscar usuários.");
@@ -69,7 +69,7 @@ const Grid = ({ setOnEdit }) => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://3.142.79.72 :8800/${id}`);
+      const response = await axios.delete(`http://3.142.79.72:8800/${id}`);
       setUsers(users.filter((user) => user.id !== id));
       toast.success(response.data);
     } catch (error) {

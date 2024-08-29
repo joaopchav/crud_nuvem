@@ -25,7 +25,7 @@ function App() {
 
   const getUsers = async () => {
     try {
-      const res = await axios.get("http://3.142.79.72 :8800/");
+      const res = await axios.get("http://3.142.79.72:8800/");
       setUsers(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {
       toast.error(error);
