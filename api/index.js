@@ -8,11 +8,11 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Edereco da EC2
+  origin: 'http://3.142.79.72 :3000', // Edereco da EC2
 }));
 
 app.use("/", userRoutes);
 
 app.listen(8800, () => {
-  console.log('Backend is running on http://localhost:8800');
+  console.log('Backend is running on http://3.142.79.72 :8800');
 });
