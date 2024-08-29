@@ -7,38 +7,39 @@ import { toast } from "react-toastify";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh; /* Altura total da viewport */
   width: 100vw;  /* Largura total da viewport */
   padding: 20px;
   background-color: #e6f7ff; /* Fundo azul claro */
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
   overflow-y: auto;
 `;
 
 const SearchInput = styled.input`
   width: 100%;
-  padding: 12px 20px;
+  max-width: 600px; /* Largura máxima para manter a legibilidade */
+  padding: 14px;
   border: 1px solid #b3d9ff;
   border-radius: 8px;
   font-size: 16px;
   margin-bottom: 20px;
+  background-color: #fff; /* Fundo branco para o campo de pesquisa */
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const Table = styled.table`
   width: 100%;
+  max-width: 800px; /* Largura máxima para manter a legibilidade */
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-collapse: collapse;
 `;
 
 const Thead = styled.thead`
-  background-color: #0056b3;
+  background-color: #0056b3; /* Azul escuro */
   color: white;
 `;
 
@@ -52,7 +53,7 @@ const Tbody = styled.tbody``;
 
 const Tr = styled.tr`
   &:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Cinza claro para linhas pares */
   }
 `;
 
@@ -67,12 +68,13 @@ const IconButton = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #0056b3;
+  color: #0056b3; /* Azul escuro */
   font-size: 18px;
+  margin-left: 10px;
   transition: color 0.3s;
 
   &:hover {
-    color: #003d80;
+    color: #003d80; /* Azul mais escuro no hover */
   }
 `;
 
